@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %> | AppleVault</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 class="logo">AppleVault</h2>
+      <nav>
+        <ul>
+          <li><a href="/categories">Categories</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/products/new">+ Add Item</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <%- body %> <!-- Page-specific content will render here -->
+    </main>
+  </div>
+</body>
+</html>

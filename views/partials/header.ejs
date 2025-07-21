@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %> | AppleVault</title>
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <h2 class="logo">AppleVault</h2>
+      <nav>
+        <ul>
+          <li><a href="/categories">Categories</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/products/new">+ Add Item</a></li>
+        </ul>
+      </nav>
+    </aside>
+     
+    <div class="backdrop" id="backdrop"></div>
+    <!-- Main Content -->
+    <main class="content">
+         <button class="menu-btn" id="menuBtn">☰ Menu</button>
+
+      <script>
+       document.addEventListener('DOMContentLoaded', () => {
+  const menuBtn = document.getElementById('menuBtn');
+  const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('backdrop');
+
+  const toggleMenu = () => {
+    sidebar.classList.toggle('active');
+    backdrop.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
+  };
+
+  if (menuBtn && sidebar && backdrop) {
+    menuBtn.addEventListener('click', toggleMenu);
+    backdrop.addEventListener('click', toggleMenu);
+  }
+});
+
+      </script>
