@@ -25,21 +25,4 @@
     <main class="content">
          <button class="menu-btn" id="menuBtn">☰ Menu</button>
 
-      <script>
-       document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.getElementById('menuBtn');
-  const sidebar = document.getElementById('sidebar');
-  const backdrop = document.getElementById('backdrop');
-
-  const toggleMenu = () => {
-    sidebar.classList.toggle('active');
-    backdrop.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
-  };
-
-  if (menuBtn && sidebar && backdrop) {
-    menuBtn.addEventListener('click', toggleMenu);
-    backdrop.addEventListener('click', toggleMenu);
-  }
-});
-
-      </script>
+      <script src="/scripts/index.js"></script>

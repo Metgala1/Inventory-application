@@ -1,3 +1,4 @@
+/* Reset and base styles */
 body {
   margin: 0;
   font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -5,11 +6,13 @@ body {
   color: #1d1d1f;
 }
 
+/* Container layout */
 .app-container {
   display: flex;
   min-height: 100vh;
 }
 
+/* Sidebar (desktop: always visible) */
 .sidebar {
   background-color: #1c1c1e;
   color: #fff;
@@ -17,6 +20,11 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  position: relative; /* On desktop, it's static */
+  top: 0;
+  left: 0;
+  height: auto;
+  z-index: 1;
 }
 
 .sidebar .logo {
@@ -27,28 +35,60 @@ body {
 .sidebar ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sidebar li {
   margin: 15px 0;
+  padding: 10px;
+  
+}
+.sidebar li:hover{
+  background-color: white;
+  color: black;
+}
+.sidebar li a:hover{
+  color: #1c1c1e;
 }
 
 .sidebar a {
   color: #a1a1a6;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .sidebar a:hover {
   color: #007aff; /* Apple blue */
+  transform: translateX(5px);
 }
 
+/* Backdrop (hidden by default) */
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 500;
+}
+
+.backdrop.show {
+  display: block;
+  opacity: 1;
+}
+
+/* Content area */
 .content {
   flex: 1;
   padding: 30px;
+  transition: margin-left 0.3s ease;
 }
 
-/* Sidebar toggle button */
+/* Sidebar toggle button (only on mobile) */
 .menu-btn {
   display: none;
   background: none;
@@ -58,31 +98,140 @@ body {
   cursor: pointer;
   margin-bottom: 20px;
 }
-.backdrop {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 500;
+
+/* Product grid (for product list later) */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
 }
 
-/* Show backdrop when sidebar is active */
-.sidebar.active + .backdrop {
-  display: block;
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
-/* Responsive adjustments */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  color: #1d1d1f;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  margin: 5px 0;
+  color: #515154;
+  font-size: 0.9rem;
+}
+
+/* Categories Page Styles */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  color: #1d1d1f;
+}
+
+.btn.btn-primary {
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+  background-color: #005bb5;
+}
+
+/* Category List */
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e5e5ea;
+  font-size: 1.1rem;
+}
+
+.category-item:last-child {
+  border-bottom: none;
+}
+
+.category-item a {
+  color: #007aff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.category-item a:hover {
+  color: #005bb5;
+}
+
+/* Edit and Delete Buttons */
+.edit-link {
+  margin-left: auto;
+  margin-right: 15px;
+  color: #34c759;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.edit-link:hover {
+  color: #248a3d;
+}
+
+.delete-btn {
+  background-color: #ff3b30;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c1271f;
+}
+
+
+/* Mobile adjustments (hide sidebar by default) */
 @media (max-width: 768px) {
   .sidebar {
     position: fixed;
-    left: -250px;
+    left: -250px; /* Hidden by default */
     top: 0;
     height: 100%;
-    width: 220px;
-    background-color: #1c1c1e;
     transition: left 0.3s ease;
     z-index: 1000;
   }
@@ -91,12 +240,13 @@ body {
     left: 0;
   }
 
+  .content {
+    padding: 20px;
+    margin-left: 0; /* No margin when sidebar is hidden */
+  }
+
   .menu-btn {
     display: block;
   }
-
-  .content {
-    padding: 20px;
-    margin-left: 0;
-  }
 }
+

@@ -1,0 +1,26 @@
+<%- include('../partials/header', { title: title }) %>
+
+<div class="page-header">
+  <h1>Categories</h1>
+  <a href="/categories/new" class="btn btn-primary">+ Add Category</a>
+</div>
+
+<ul class="category-list">
+  <% if (categories.length > 0) { %>
+    <% categories.forEach(category => { %>
+      <li class="category-item">
+        <a href="/categories/<%= category.id %>">
+          <%= category.name %>
+        </a>
+        <a href="/categories/<%= category.id %>/edit" class="edit-link">Edit</a>
+        <form action="/categories/<%= category.id %>/delete" method="POST" style="display:inline;">
+          <button type="submit" class="delete-btn">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <li>No categories yet. <a href="/categories/new">Create one</a>.</li>
+  <% } %>
+</ul>
+
+<%- include('../partials/footer') %>

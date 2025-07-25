@@ -1,17 +1,17 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const indexRouter = require("./routes/indexRouter")
+
 require('dotenv').config({path: path.join(__dirname, '.env')})
 
 
 app.set('view engine', 'ejs')
 app.set('views', 'views')
 app.use(express.urlencoded({ extended: false }))
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, "public")));
 
-app.get('/', (req, res) => {
-    res.render('index', { title: 'Home' })  
-})
+app.use('/', indexRouter)
 
 
 
