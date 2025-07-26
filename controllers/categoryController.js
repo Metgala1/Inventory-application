@@ -1,14 +1,14 @@
 const pool = require("../db/pool");
 
 exports.listCategories = async (req, res) => {
-    try{
-        const {rows} = await pool.query("SELECT * FROM categories ORDER BY name");
-        res.render("categories/list", {title: "Categories", categories: rows});
-    }catch (error) {
-        console.error("Error fetching categories:", error);
-        res.status(500).send("Internal Server Error");
-    }
-}
+  try {
+    const { rows } = await pool.query("SELECT * FROM categories ORDER BY name");
+    res.render("categories/list", { title: "Categories", categories: rows });
+  } catch (error) {
+    console.error("Error fetching categories:", error.message, error.stack);
+    res.status(500).send(`Server Error: ${error.message}`);
+  }
+};
 
 exports.categoryDetail = async (req, res) => {
   const { id } = req.params;
