@@ -1,0 +1,28 @@
+<%- include('../partials/header', { title: title }) %>
+
+<div class="page-header">
+  <h1><%= category.name %> Products</h1>
+  <a href="/products/new?category=<%= category.id %>" class="btn btn-primary">+ Add Product</a>
+  <a href="/categories" class="btn btn-secondary">← Back to Categories</a>
+</div>
+
+<% if (products.length > 0) { %>
+  <ul class="product-list">
+    <% products.forEach(product => { %>
+      <li class="product-item">
+        <h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
+        <p><strong>Model:</strong> <%= product.model %></p>
+        <p><strong>Price:</strong> $<%= product.price %></p>
+        <p><strong>Quantity:</strong> <%= product.quantity %></p>
+        <a href="/products/<%= product.id %>/edit" class="edit-link">Edit</a>
+        <form action="/products/<%= product.id %>/delete" method="POST" style="display:inline;">
+          <button type="submit" class="delete-btn">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>No products in this category yet. <a href="/products/new?category=<%= category.id %>">Add one</a>.</p>
+<% } %>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,36 @@
+<%- include('../partials/header', { title }) %>
+<link rel="stylesheet" href="/styles/products.css">
+
+<div class="page-header">
+  <h1>Products</h1>
+  <a href="/products/new" class="btn btn-primary">+ Add Product</a>
+</div>
+
+<ul class="product-list">
+  <% if (products.length > 0) { %>
+    <% products.forEach(product => { %>
+      <li class="product-item">
+        <div>
+          <h3>
+            <a href="/products/<%= product.id %>">
+              <%= product.name %>
+            </a>
+          </h3>
+          <p><strong>Price:</strong> $<%= Number(product.price).toFixed(2) %></p>
+          <p><strong>Stock:</strong> <%= product.stock_quantity %> units</p>
+        </div>
+        <div class="product-actions">
+          <a href="/products/<%= product.id %>/edit" class="edit-link">Edit</a>
+          <form action="/products/<%= product.id %>/delete" method="POST" style="display:inline;">
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
+        </div>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <li>No products found. <a href="/products/new">Add one</a>.</li>
+  <% } %>
+</ul>
+
+<%- include('../partials/footer') %>
+

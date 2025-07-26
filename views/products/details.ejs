@@ -1,0 +1,22 @@
+<%- include('../partials/header', { title }) %>
+<link rel="stylesheet" href="/styles/products.css">
+
+<div class="product-detail">
+  <div class="product-header">
+    <h1><%= product.name %></h1>
+    <a href="/products/<%= product.id %>/edit" class="btn btn-primary">Edit</a>
+    <form action="/products/<%= product.id %>/delete" method="POST" style="display:inline;">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+
+  <div class="product-info">
+    <p><strong>Price:</strong> $<%= Number(product.price).toFixed(2) %></p>
+    <p><strong>Stock:</strong> <%= product.stock_quantity %> units</p>
+    <p><strong>Description:</strong> <%= product.description || 'No description available' %></p>
+  </div>
+
+  <a href="/products" class="btn btn-secondary">Back to Products</a>
+</div>
+
+<%- include('../partials/footer') %>

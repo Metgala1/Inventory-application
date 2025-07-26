@@ -1,0 +1,140 @@
+/* Product List Styling */
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.product-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.product-item h3 {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+  color: #1d1d1f;
+}
+
+.product-item h3 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-item p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #515154;
+}
+
+.product-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Product Detail Page Styles */
+
+.product-detail {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  max-width: 700px;
+  margin: 40px auto;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #1d1d1f;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.product-header h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #1d1d1f;
+}
+
+.product-info p {
+  font-size: 1rem;
+  margin: 12px 0;
+  color: #515154;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #007aff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #005ecb;
+}
+
+.btn-danger {
+  background-color: #ff3b30;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.btn-danger:hover {
+  background-color: #d91f1f;
+}
+
+.btn-secondary {
+  background-color: #e5e5ea;
+  color: #1d1d1f;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background-color: #d1d1d6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .product-detail {
+    padding: 20px;
+    margin: 20px;
+  }
+}
+
+
+/* Buttons inside products list already inherit .edit-link and .delete-btn styles */
