@@ -1,14 +1,8 @@
-/* General Page Layout */
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f2f4f7;
-  color: #333;
-  line-height: 1.5;
-}
+/* ===============================
+   EDIT PRODUCT PAGE STYLES
+   =============================== */
 
-/* Header Section */
+/* Page header (title + back button) */
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -28,7 +22,7 @@ body {
 
 .page-header .btn-secondary {
   background-color: #444;
-  color: white;
+  color: #fff;
   padding: 0.6rem 1.2rem;
   border-radius: 6px;
   text-decoration: none;
@@ -40,7 +34,7 @@ body {
   background-color: #666;
 }
 
-/* Form Container */
+/* Product edit form container */
 .product-form {
   max-width: 700px;
   margin: 3rem auto;
@@ -51,22 +45,22 @@ body {
   animation: fadeIn 0.4s ease-in-out;
 }
 
-/* Form Fields */
-.form-group {
+/* Form groups and labels */
+.product-form .form-group {
   margin-bottom: 1.5rem;
 }
 
-label {
+.product-form label {
   display: block;
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: #444;
 }
 
-input[type="text"],
-input[type="number"],
-textarea,
-select {
+/* Inputs, textarea, select */
+.product-form input,
+.product-form textarea,
+.product-form select {
   width: 100%;
   padding: 0.8rem;
   font-size: 1rem;
@@ -76,24 +70,23 @@ select {
   transition: all 0.2s ease-in-out;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+.product-form input:focus,
+.product-form textarea:focus,
+.product-form select:focus {
   border-color: #007bff;
   background-color: #fff;
   box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
   outline: none;
 }
 
-/* Textarea adjustments */
-textarea {
+.product-form textarea {
   resize: vertical;
   min-height: 100px;
 }
 
-/* Submit Button */
-.btn-primary {
-  display: inline-block;
+/* Submit button */
+.product-form .btn-primary {
+  display: block;
   width: 100%;
   background-color: #007bff;
   color: white;
@@ -107,11 +100,11 @@ textarea {
   margin-top: 0.5rem;
 }
 
-.btn-primary:hover {
+.product-form .btn-primary:hover {
   background-color: #0056b3;
 }
 
-/* Animations */
+/* Fade-in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -123,7 +116,7 @@ textarea {
   }
 }
 
-/* Responsiveness */
+/* Responsive tweaks */
 @media (max-width: 768px) {
   .page-header {
     flex-direction: column;
@@ -140,14 +133,8 @@ textarea {
     margin: 1.5rem;
     padding: 1.5rem;
   }
-}
 
-@media (max-width: 480px) {
-  .page-header h1 {
-    font-size: 1.3rem;
-  }
-
-  .btn-primary {
+  .product-form .btn-primary {
     font-size: 1rem;
     padding: 0.8rem;
   }

@@ -2,9 +2,12 @@ const { Router } = require('express');
 const indexRouter = Router();
 const CategoryController = require('../controllers/categoryController');
 const productController = require("../controllers/productController");
+const dashboardController = require("../controllers/dashBoardController");
+
+
 
 indexRouter.get("/categories", CategoryController.listCategories);
-indexRouter.get("/", (req, res) => res.render("index"));
+indexRouter.get("/", dashboardController.showDashboard);
 indexRouter.get("/categories/:id", CategoryController.categoryDetail);
 indexRouter.get("/products", productController.listProducts);
 indexRouter.get("/products/new", productController.showCreateProductForm);

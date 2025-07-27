@@ -1,0 +1,39 @@
+<%- include('./partials/header', { title }) %>
+<link rel="stylesheet" href="/styles/dashboard.css">
+
+<div class="dashboard-container">
+  <h1>AppleVault Dashboard</h1>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h2><%= productCount %></h2>
+      <p>Products</p>
+    </div>
+    <div class="stat-card">
+      <h2><%= categoryCount %></h2>
+      <p>Categories</p>
+    </div>
+  </div>
+
+  <div class="quick-links">
+    <a href="/products" class="btn">Manage Products</a>
+    <a href="/categories" class="btn">Manage Categories</a>
+  </div>
+
+  <div class="low-stock">
+    <h3>Low Stock Products</h3>
+    <% if (lowStockProducts.length > 0) { %>
+      <ul>
+        <% lowStockProducts.forEach(product => { %>
+          <li>
+            <strong><%= product.name %></strong> - <%= product.quantity %> left
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>All stock levels are healthy.</p>
+    <% } %>
+  </div>
+</div>
+
+<%- include('./partials/footer') %>
