@@ -17,13 +17,12 @@
             </a>
           </h3>
           <p><strong>Price:</strong> $<%= Number(product.price).toFixed(2) %></p>
-          <p><strong>Stock:</strong> <%= product.stock_quantity %> units</p>
+          <p><strong>Stock:</strong> <%= product.quantity %> units</p>
         </div>
         <div class="product-actions">
           <a href="/products/<%= product.id %>/edit" class="edit-link">Edit</a>
-          <form action="/products/<%= product.id %>/delete" method="POST" style="display:inline;">
-            <button type="submit" class="delete-btn">Delete</button>
-          </form>
+          <!-- Link to confirmation page (NOT direct delete) -->
+          <a href="/products/<%= product.id %>/delete" class="delete-link">Delete</a>
         </div>
       </li>
     <% }) %>
@@ -33,4 +32,5 @@
 </ul>
 
 <%- include('../partials/footer') %>
+
 

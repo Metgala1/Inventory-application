@@ -43,13 +43,13 @@ exports.showCreateProductForm = async (req, res) => {
 
 // Handle product creation (POST)
 exports.createProduct = async (req, res) => {
-  const { name, description, price, stock_quantity, category_id } = req.body;
+  const { name, description, price, quantity, category_id } = req.body;
 
   try {
     await pool.query(
-      `INSERT INTO products (name, description, price, stock_quantity, category_id)
+      `INSERT INTO products (name, description, price, quantity, category_id)
        VALUES ($1, $2, $3, $4, $5)`,
-      [name, description, price, stock_quantity, category_id]
+      [name, description, price, quantity, category_id]
     );
     res.redirect("/products");
   } catch (error) {
@@ -57,6 +57,7 @@ exports.createProduct = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
+
 
 // Show "Edit Product" form
 exports.showEditProductForm = async (req, res) => {
@@ -84,14 +85,14 @@ exports.showEditProductForm = async (req, res) => {
 // Handle product update (POST)
 exports.updateProduct = async (req, res) => {
   const { id } = req.params;
-  const { name, description, price, stock_quantity, category_id } = req.body;
+  const { name, model, description, price, quantity, category_id } = req.body;
 
   try {
     await pool.query(
-      `UPDATE products
-       SET name = $1, description = $2, price = $3, stock_quantity = $4, category_id = $5
-       WHERE id = $6`,
-      [name, description, price, stock_quantity, category_id, id]
+      `UPDATE products 
+       SET name = $1, model = $2, description = $3, price = $4, quantity = $5, category_id = $6
+       WHERE id = $7`,
+      [name, model, description, price, quantity, category_id, id]
     );
     res.redirect(`/products/${id}`);
   } catch (error) {
@@ -124,14 +125,6 @@ exports.showDeleteProduct = async (req, res) => {
 // Handle product deletion (POST)
 exports.deleteProduct = async (req, res) => {
   const { id } = req.params;
-  const { admin_password } = req.body;
-
-  // Optional: protect with an admin password (extra credit)
-  const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "secret123";
-
-  if (admin_password !== ADMIN_PASSWORD) {
-    return res.status(403).send("Unauthorized: Wrong password");
-  }
 
   try {
     await pool.query("DELETE FROM products WHERE id = $1", [id]);

@@ -1,258 +1,206 @@
-/* Product List Styling */
-.product-list {
-  list-style: none;
+/* General Page Layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
   padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-.product-item {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.product-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-}
-
-.product-item h3 {
-  font-size: 1.2rem;
-  margin: 0 0 10px;
-  color: #1d1d1f;
-}
-
-.product-item h3 a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.product-item p {
-  margin: 5px 0;
-  font-size: 0.95rem;
-  color: #515154;
-}
-
-.product-actions {
-  margin-top: 10px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-/* Product Detail Page Styles */
-
-.product-detail {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-  max-width: 700px;
-  margin: 40px auto;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: #1d1d1f;
-}
-
-.product-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.product-header h1 {
-  font-size: 2rem;
-  margin: 0;
-  color: #1d1d1f;
-}
-
-.product-info p {
-  font-size: 1rem;
-  margin: 12px 0;
-  color: #515154;
-}
-
-.btn {
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border: none;
-}
-
-/* Buttons */
-.btn-primary {
-  background-color: #007aff;
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background-color: #005ecb;
-}
-
-.btn-danger {
-  background-color: #ff3b30;
-  color: #fff;
-  margin-left: 10px;
-}
-
-.btn-danger:hover {
-  background-color: #d91f1f;
-}
-
-.btn-secondary {
-  background-color: #e5e5ea;
-  color: #1d1d1f;
-  margin-top: 20px;
-  display: inline-block;
-}
-
-.btn-secondary:hover {
-  background-color: #d1d1d6;
-}
-/*Product/new route*/
-/* Products Page Styles */
+/* Page Header */
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #e5e5ea;
+  padding: 1rem 2rem;
+  background-color: #222;
+  color: white;
 }
 
 .page-header h1 {
-  font-size: 1.8rem;
-  color: #1d1d1f;
   margin: 0;
 }
 
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  font-weight: 500;
+.page-header a {
+  color: white;
+  background-color: #007bff;
+  padding: 0.5rem 1rem;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  border-radius: 4px;
 }
 
-/* Button Colors (AppleVault Style) */
-.btn-primary {
-  background-color: #007aff; /* Apple blue */
-  color: #fff;
-  border: none;
+.page-header a:hover {
+  background-color: #0056b3;
 }
 
-.btn-primary:hover {
-  background-color: #005ecb;
+/* Product List */
+.product-list {
+  list-style: none;
+  margin: 2rem auto;
+  padding: 0;
+  max-width: 900px;
 }
 
-.btn-secondary {
-  background-color: #1c1c1e; /* Sidebar color */
-  color: #fff;
-  border: none;
-}
-
-.btn-secondary:hover {
-  background-color: #333336;
-}
-
-/* Product Form */
-.product-form {
-  max-width: 500px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.form-group {
+.product-item {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  font-size: 1rem;
-  color: #1d1d1f;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.form-group input,
-.form-group select {
-  padding: 10px;
-  border: 1px solid #e5e5ea;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #ddd;
   border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-
-.form-group input:focus,
-.form-group select:focus {
-  border-color: #007aff;
-  box-shadow: 0 0 5px rgba(0, 122, 255, 0.3);
-  outline: none;
+.product-item h3 a {
+  text-decoration: none;
+  color: #007bff;
 }
 
-/* Submit Button */
-.product-form button[type="submit"] {
-  width: 100%;
-  padding: 12px;
-  font-size: 1.1rem;
-  border-radius: 6px;
-  background-color: #007aff;
-  color: #fff;
+.product-item h3 a:hover {
+  text-decoration: underline;
+}
+
+.product-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.edit-link {
+  color: #28a745;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.edit-link:hover {
+  text-decoration: underline;
+}
+
+.delete-link,
+.delete-btn {
+  color: white;
+  background-color: #dc3545;
   border: none;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
-.product-form button[type="submit"]:hover {
-  background-color: #005ecb;
+.delete-link:hover,
+.delete-btn:hover {
+  background-color: #a71d2a;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .product-form {
-    padding: 20px;
-  }
-
-  .page-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
+/* Forms (New, Edit) */
+.product-form {
+  max-width: 600px;
+  margin: 3rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .product-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .product-detail {
-    padding: 20px;
-    margin: 20px;
-  }
+.product-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #222;
 }
 
+.product-form .form-group {
+  margin-bottom: 1.5rem;
+}
 
-/* Buttons inside products list already inherit .edit-link and .delete-btn styles */
+.product-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #444;
+}
+
+.product-form input,
+.product-form textarea,
+.product-form select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #fafafa;
+  transition: border-color 0.2s;
+}
+
+.product-form input:focus,
+.product-form textarea:focus,
+.product-form select:focus {
+  border-color: #007bff;
+  outline: none;
+  background-color: #fff;
+}
+
+.product-form button {
+  display: block;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.product-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Delete Confirmation */
+.delete-confirmation {
+  max-width: 500px;
+  margin: 3rem auto;
+  background: #fff5f5;
+  border: 1px solid #f5c2c7;
+  padding: 2rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.delete-confirmation p {
+  margin-bottom: 1.5rem;
+  color: #842029;
+  font-size: 1.2rem;
+}
+
+.delete-confirmation .btn-danger {
+  background-color: #dc3545;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+.delete-confirmation .btn-danger:hover {
+  background-color: #a71d2a;
+}
+
+.delete-confirmation .btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.delete-confirmation .btn-secondary:hover {
+  background-color: #565e64;
+}
