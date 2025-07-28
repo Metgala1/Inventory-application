@@ -12,12 +12,16 @@
   color: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   flex-wrap: wrap;
+  border-top-right-radius: 3rem;
+  border-bottom-left-radius: 3rem ;
 }
+
 
 .page-header h1 {
   margin: 0;
   font-size: 1.8rem;
   font-weight: 600;
+  color: white;
 }
 
 .page-header .btn-secondary {
@@ -28,6 +32,8 @@
   text-decoration: none;
   transition: background 0.3s ease;
   font-size: 0.95rem;
+  border-top-right-radius: 3rem;
+  border-bottom-left-radius: 3rem ;
 }
 
 .page-header .btn-secondary:hover {
@@ -43,6 +49,8 @@
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   animation: fadeIn 0.4s ease-in-out;
+  border-top-right-radius: 3rem;
+  border-bottom-left-radius: 3rem ;
 }
 
 /* Form groups and labels */
@@ -94,7 +102,8 @@
   font-weight: bold;
   padding: 0.9rem 1.5rem;
   border: none;
-  border-radius: 6px;
+  border-top-right-radius: 3rem;
+  border-bottom-left-radius: 3rem ;
   cursor: pointer;
   transition: background 0.3s ease;
   margin-top: 0.5rem;
@@ -119,19 +128,26 @@
 /* Responsive tweaks */
 @media (max-width: 768px) {
   .page-header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
     gap: 1rem;
     padding: 1rem;
   }
 
   .page-header h1 {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .product-form {
-    margin: 1.5rem;
     padding: 1.5rem;
+    border-radius: 20px;
+    width: 90%;
+    margin: auto;
+  }
+  .product-form input,
+  .product-form textarea,
+  .product-form select{
+    width: 95%;
+    
   }
 
   .product-form .btn-primary {
