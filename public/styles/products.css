@@ -15,18 +15,25 @@ body {
   padding: 1rem 2rem;
   background-color: #222;
   color: white;
+  border-top-right-radius: 3rem;
+  border-bottom-left-radius: 3rem ;
 }
 
 .page-header h1 {
   margin: 0;
+  color: white;
 }
 
 .page-header a {
   color: white;
-  background-color: #007bff;
   padding: 0.5rem 1rem;
   text-decoration: none;
   border-radius: 4px;
+}
+.page-header button{
+   border-top-right-radius: 3rem;
+  border-bottom-left-radius: 3rem ;
+   background-color: #007bff;
 }
 
 .page-header a:hover {
@@ -38,7 +45,7 @@ body {
   list-style: none;
   margin: 2rem auto;
   padding: 0;
-  max-width: 900px;
+  max-width: 90%;
 }
 
 .product-item {
@@ -203,4 +210,18 @@ body {
 
 .delete-confirmation .btn-secondary:hover {
   background-color: #565e64;
+}
+
+@media screen and (max-width: 700px) {
+  .page-header{
+    display: flex;
+    flex-direction: row;
+  }
+  .page-header h1{
+    font-size: 1rem;
+  }
+  .page-header button{
+    font-size: 1rem;
+  }
+  
 }

@@ -1,8 +1,4 @@
-/* =========================================
-   APPLEVAULT - CATEGORIES & PRODUCTS STYLES
-   ========================================= */
 
-/* ===== General Page Look ===== */
 body {
   margin: 0;
   padding: 0;
@@ -15,12 +11,10 @@ body {
 /* ===== Page Header ===== */
 .page-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
   padding: 1.5rem 2rem;
   background-color: #1a1a1a;
   color: #fff;
-  flex-wrap: wrap;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 

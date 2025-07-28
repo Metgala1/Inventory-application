@@ -15,10 +15,7 @@
         <a href="/categories/<%= category.id %>">
           <%= category.name %>
         </a>
-        <a href="/categories/<%= category.id %>/edit" class="edit-link">Edit</a>
-        <form action="/categories/<%= category.id %>/delete" method="POST" style="display:inline;">
-          <button type="submit" class="delete-btn">Delete</button>
-        </form>
+        
       </li>
     <% }) %>
   <% } else { %>
