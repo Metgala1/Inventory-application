@@ -13,6 +13,7 @@
   <% if (products.length > 0) { %>
     <% products.forEach(product => { %>
       <li class="product-item">
+        <a href="/products/<%= product.id %>">
         <!-- Product Image -->
         <div class="product-image">
           <img 
@@ -23,8 +24,9 @@
 
         <!-- Product Details -->
         <div class="product-details">
+          
           <h3>
-            <a href="/products/<%= product.id %>"><%= product.name %></a>
+            <%= product.name %>
           </h3>
           <p><strong>Model:</strong> <%= product.model %></p>
           <p><strong>Price:</strong> $<%= Number(product.price).toFixed(2) %></p>
@@ -38,6 +40,7 @@
             <button type="submit" class="delete-btn" >Delete</button>
           </form>
         </div>
+        </a>
       </li>
     <% }) %>
   <% } else { %>
