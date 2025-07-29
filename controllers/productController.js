@@ -43,13 +43,13 @@ exports.showCreateProductForm = async (req, res) => {
 
 // Handle product creation (POST)
 exports.createProduct = async (req, res) => {
-  const { name, description, price, quantity, category_id } = req.body;
+  const { name, description, price, quantity, category_id, image_url } = req.body;
 
   try {
     await pool.query(
-      `INSERT INTO products (name, description, price, quantity, category_id)
-       VALUES ($1, $2, $3, $4, $5)`,
-      [name, description, price, quantity, category_id]
+      `INSERT INTO products (name, description, price, quantity, category_id, image_url)
+       VALUES ($1, $2, $3, $4, $5, $6)`,
+      [name, description, price, quantity, category_id, image_url]
     );
     res.redirect("/products");
   } catch (error) {
@@ -85,14 +85,14 @@ exports.showEditProductForm = async (req, res) => {
 // Handle product update (POST)
 exports.updateProduct = async (req, res) => {
   const { id } = req.params;
-  const { name, model, description, price, quantity, category_id } = req.body;
+  const { name, model, description, price, quantity, category_id, image_url } = req.body;
 
   try {
     await pool.query(
       `UPDATE products 
-       SET name = $1, model = $2, description = $3, price = $4, quantity = $5, category_id = $6
-       WHERE id = $7`,
-      [name, model, description, price, quantity, category_id, id]
+       SET name = $1, model = $2, description = $3, price = $4, quantity = $5, category_id = $6, image_url = $7
+       WHERE id = $8`,
+      [name, model, description, price, quantity, category_id, image_url, id]
     );
     res.redirect(`/products/${id}`);
   } catch (error) {
