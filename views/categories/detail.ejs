@@ -1,29 +1,51 @@
 <%- include('../partials/header', { title: title }) %>
-<link rel="stylesheet" href="/styles/categories.css">
+<link rel="stylesheet" href="/styles/products.css">
 
 <div class="page-header">
   <h1><%= category.name %> Products</h1>
-  <a href="/products/new?category=<%= category.id %>" class="btn btn-primary">+ Add Product</a>
-  <a href="/categories" class="btn btn-secondary">← Back to Categories</a>
+  <div>
+    <a href="/products/new?category=<%= category.id %>" class="btn btn-primary">+ Add Product</a>
+    <a href="/categories" class="btn btn-secondary">← Back to Categories</a>
+  </div>
 </div>
 
-<% if (products.length > 0) { %>
-  <ul class="product-list">
+<ul class="product-list">
+  <% if (products.length > 0) { %>
     <% products.forEach(product => { %>
       <li class="product-item">
-        <h3><a href="/products/<%= product.id %>"><%= product.name %></a></h3>
-        <p><strong>Model:</strong> <%= product.model %></p>
-        <p><strong>Price:</strong> $<%= product.price %></p>
-        <p><strong>Quantity:</strong> <%= product.quantity %></p>
-        <a href="/products/<%= product.id %>/edit" class="edit-link">Edit</a>
-        <form action="/products/<%= product.id %>/delete" method="POST" style="display:inline;">
-          <button type="submit" class="delete-btn">Delete</button>
-        </form>
+        <!-- Product Image -->
+        <div class="product-image">
+          <img 
+            src="<%= product.image_url || '/images/placeholder.png' %>" 
+            alt="<%= product.name %>"
+          />
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+          <h3>
+            <a href="/products/<%= product.id %>"><%= product.name %></a>
+          </h3>
+          <p><strong>Model:</strong> <%= product.model %></p>
+          <p><strong>Price:</strong> $<%= Number(product.price).toFixed(2) %></p>
+          <p><strong>Stock:</strong> <%= product.quantity %> units</p>
+        </div>
+
+        <!-- Product Actions -->
+        <div class="product-actions">
+          <a href="/products/<%= product.id %>/edit" class="edit-link">Edit</a>
+          <form action="/products/<%= product.id %>/delete" method="POST" style="display:inline;">
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
+        </div>
       </li>
     <% }) %>
-  </ul>
-<% } else { %>
-  <p>No products in this category yet. <a href="/products/new?category=<%= category.id %>">Add one</a>.</p>
-<% } %>
+  <% } else { %>
+    <li>No products in this category yet. 
+      <a href="/products/new?category=<%= category.id %>">Add one</a>.
+    </li>
+  <% } %>
+</ul>
 
 <%- include('../partials/footer') %>
+

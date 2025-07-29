@@ -3,14 +3,25 @@
 
 <div class="page-header">
   <h1>Products</h1>
-  <button class="btn btn-primary"><a href="/products/new" class="btn btn-primary">+ Add Product</a></button>
+  <button class="btn btn-primary">
+    <a href="/products/new" class="btn btn-primary">+ Add Product</a>
+  </button>
 </div>
 
 <ul class="product-list">
   <% if (products.length > 0) { %>
     <% products.forEach(product => { %>
       <li class="product-item">
-        <div>
+        <!-- Product Image -->
+        <div class="product-image">
+          <img 
+            src="<%= product.image_url || '/images/placeholder.png' %>" 
+            alt="<%= product.name %>"
+          />
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
           <h3>
             <a href="/products/<%= product.id %>">
               <%= product.name %>
@@ -19,9 +30,10 @@
           <p><strong>Price:</strong> $<%= Number(product.price).toFixed(2) %></p>
           <p><strong>Stock:</strong> <%= product.quantity %> units</p>
         </div>
+
+        <!-- Product Actions -->
         <div class="product-actions">
           <a href="/products/<%= product.id %>/edit" class="edit-link">Edit</a>
-          <!-- Link to confirmation page (NOT direct delete) -->
           <a href="/products/<%= product.id %>/delete" class="delete-link">Delete</a>
         </div>
       </li>
@@ -32,5 +44,6 @@
 </ul>
 
 <%- include('../partials/footer') %>
+
 
 

@@ -1,227 +1,261 @@
-/* General Page Layout */
+/* ==============================
+   GLOBAL LAYOUT & TYPOGRAPHY
+   ============================== */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
   background-color: #f5f5f5;
   color: #333;
+  line-height: 1.5;
 }
 
-/* Page Header */
+
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #222;
-  color: white;
+  padding: 1.2rem 2rem;
+  background-color: #1a1a1a;
+  color: #fff;
   border-top-right-radius: 3rem;
-  border-bottom-left-radius: 3rem ;
+  border-bottom-left-radius: 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
 }
 
 .page-header h1 {
   margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
   color: white;
 }
 
-.page-header a {
-  color: white;
-  padding: 0.5rem 1rem;
+.page-header a,
+.page-header button {
+  display: inline-block;
   text-decoration: none;
-  border-radius: 4px;
-}
-.page-header button{
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  border: none;
    border-top-right-radius: 3rem;
-  border-bottom-left-radius: 3rem ;
-   background-color: #007bff;
+  border-bottom-left-radius: 3rem;
 }
 
-.page-header a:hover {
+.page-header a:hover,
+.page-header button:hover {
   background-color: #0056b3;
 }
 
-/* Product List */
+/* ==============================
+   PRODUCT LIST STYLING
+   ============================== */
 .product-list {
   list-style: none;
   margin: 2rem auto;
   padding: 0;
-  max-width: 90%;
+  max-width: 100%; /* center the grid and limit max width */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+  gap: 1.5rem;
 }
 
+
+/* Each Product Item */
 .product-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background: white;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.product-item h3 a {
-  text-decoration: none;
+.product-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Image */
+.product-image img {
+  width: 95%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Product Details */
+.product-details {
+  flex: 1;
+}
+
+.product-details h3 a {
   color: #007bff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
 }
 
-.product-item h3 a:hover {
+.product-details h3 a:hover {
+  color: #0056b3;
   text-decoration: underline;
 }
 
+/* Actions */
 .product-actions {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.edit-link,
+.delete-link {
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .edit-link {
   color: #28a745;
-  text-decoration: none;
-  font-weight: bold;
 }
 
 .edit-link:hover {
-  text-decoration: underline;
+  color: #1c7c31;
 }
 
-.delete-link,
-.delete-btn {
-  color: white;
-  background-color: #dc3545;
-  border: none;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
+.delete-link {
+  color: #dc3545;
 }
 
-.delete-link:hover,
-.delete-btn:hover {
-  background-color: #a71d2a;
+.delete-link:hover {
+  color: #a71d2a;
 }
 
-/* Forms (New, Edit) */
+/* ==============================
+   FORMS (NEW & EDIT)
+   ============================== */
 .product-form {
   max-width: 600px;
   margin: 3rem auto;
-  background: white;
+  background-color: #fff;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .product-form h2 {
   text-align: center;
   margin-bottom: 2rem;
-  color: #222;
+  color: #1a1a1a;
 }
 
-.product-form .form-group {
+.form-group {
   margin-bottom: 1.5rem;
 }
 
-.product-form label {
+label {
   display: block;
+  font-weight: 600;
   margin-bottom: 0.5rem;
-  font-weight: bold;
   color: #444;
 }
 
-.product-form input,
-.product-form textarea,
-.product-form select {
+input[type="text"],
+input[type="number"],
+textarea,
+select {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.8rem;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   background-color: #fafafa;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.product-form input:focus,
-.product-form textarea:focus,
-.product-form select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   border-color: #007bff;
-  outline: none;
   background-color: #fff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+  outline: none;
 }
 
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Buttons */
 .product-form button {
-  display: block;
   width: 100%;
   background-color: #007bff;
   color: white;
   padding: 0.9rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
   font-size: 1.1rem;
   font-weight: bold;
-  margin-top: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .product-form button:hover {
   background-color: #0056b3;
 }
 
-/* Delete Confirmation */
-.delete-confirmation {
-  max-width: 500px;
-  margin: 3rem auto;
-  background: #fff5f5;
-  border: 1px solid #f5c2c7;
-  padding: 2rem;
-  border-radius: 6px;
-  text-align: center;
-}
+/* ==============================
+   RESPONSIVENESS
+   ============================== */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
 
-.delete-confirmation p {
-  margin-bottom: 1.5rem;
-  color: #842029;
-  font-size: 1.2rem;
-}
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
 
-.delete-confirmation .btn-danger {
-  background-color: #dc3545;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-right: 1rem;
-}
+  .product-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.delete-confirmation .btn-danger:hover {
-  background-color: #a71d2a;
-}
+  .product-image img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+  }
 
-.delete-confirmation .btn-secondary {
-  background-color: #6c757d;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.delete-confirmation .btn-secondary:hover {
-  background-color: #565e64;
-}
-
-@media screen and (max-width: 700px) {
-  .page-header{
-    display: flex;
+  .product-actions {
     flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
   }
-  .page-header h1{
-    font-size: 1rem;
-  }
-  .page-header button{
-    font-size: 1rem;
-  }
-  
 }
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .page-header a,
+  .page-header button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
