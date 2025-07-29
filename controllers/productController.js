@@ -1,14 +1,32 @@
 const pool = require("../db/pool"); 
 
 exports.listProducts = async (req, res) => {
-     try{
-        const { rows } = await pool.query("SELECT * FROM products ORDER BY name");
-        res.render("products/list", { title: "Products", products: rows });
-     }catch (error) {
-        console.error("Error fetching products:", error.message, error.stack);
-        res.status(500).send(`Server Error: ${error.message}`);
-     }
-}
+  try {
+    const q = req.query.q || ''; // Get search term (if any)
+    
+    let query = "SELECT * FROM products";
+    let params = [];
+
+    if (q) {
+      query += " WHERE name ILIKE $1 OR model ILIKE $1 ORDER BY name";
+      params.push(`%${q}%`);
+    } else {
+      query += " ORDER BY name";
+    }
+
+    const { rows } = await pool.query(query, params);
+
+    res.render("products/list", { 
+      title: "Products", 
+      products: rows,
+      q // Pass search term back to view (for input value)
+    });
+  } catch (error) {
+    console.error("Error fetching products:", error.message, error.stack);
+    res.status(500).send(`Server Error: ${error.message}`);
+  }
+};
+
 
 exports.getProductDetails = async (req, res) => {
   const { id } = req.params;
@@ -134,3 +152,5 @@ exports.deleteProduct = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
+
+

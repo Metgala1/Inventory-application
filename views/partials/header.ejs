@@ -12,6 +12,17 @@
       <img src="/apple.jpg" alt="Apple Logo" class="apple-logo">
       <span class="logo-text">AppleVault</span>
     </div>
+    <div class="search-bar">
+  <form action="/products" method="GET">
+    <input 
+      type="text" 
+      name="q" 
+      value="<%= typeof q !== 'undefined' ? q : '' %>" 
+      placeholder="Search products by name or model..."
+    />
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</div>
   </header>
   <div class="app-container">
     <!-- Sidebar -->

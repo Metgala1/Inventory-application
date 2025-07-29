@@ -11,7 +11,9 @@
 <ul class="product-list">
   <% if (products.length > 0) { %>
     <% products.forEach(product => { %>
+      
       <li class="product-item">
+         <a href="/products/<%= product.id %>">
         <!-- Product Image -->
         <div class="product-image">
           <img 
@@ -23,9 +25,8 @@
         <!-- Product Details -->
         <div class="product-details">
           <h3>
-            <a href="/products/<%= product.id %>">
+           
               <%= product.name %>
-            </a>
           </h3>
           <p><strong>Price:</strong> $<%= Number(product.price).toFixed(2) %></p>
           <p><strong>Stock:</strong> <%= product.quantity %> units</p>
@@ -36,6 +37,7 @@
           <a href="/products/<%= product.id %>/edit" class="edit-link">Edit</a>
           <a href="/products/<%= product.id %>/delete" class="delete-link">Delete</a>
         </div>
+        </a>
       </li>
     <% }) %>
   <% } else { %>
