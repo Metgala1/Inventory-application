@@ -8,8 +8,8 @@ body {
 
 .dashboard-container {
   max-width: 1000px;
-  margin: 2rem auto;
-  padding: 1.5rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 h1 {
@@ -28,7 +28,7 @@ h1 {
 }
 
 .stat-card {
-  background: #fff;
+  background: black;
   padding: 2rem;
   text-align: center;
   border-radius: 10px;
@@ -49,7 +49,7 @@ h1 {
 .stat-card p {
   margin-top: 0.5rem;
   font-size: 1.2rem;
-  color: #555;
+  color: white;
 }
 
 /* Quick Links */
@@ -76,10 +76,11 @@ h1 {
 
 /* Low Stock Section */
 .low-stock {
-  background: #fff;
+  background: black;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  color: white;
 }
 
 .low-stock h3 {

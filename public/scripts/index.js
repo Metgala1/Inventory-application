@@ -2,7 +2,10 @@
   const menuBtn = document.getElementById('menuBtn');
   const sidebar = document.getElementById('sidebar');
   const backdrop = document.getElementById('backdrop');
-
+  const disabledBtn = document.querySelector(".disabled")
+  disabledBtn.onclick(() => {
+  alert("HAHA!! DON'T DELETE FROM MY DATABASE BUDDY😎")
+})
   const toggleMenu = () => {
     sidebar.classList.toggle('active');
     if (sidebar.classList.contains('active')) {
@@ -21,3 +24,4 @@
     backdrop.addEventListener('click', toggleMenu);
   }
 });
+

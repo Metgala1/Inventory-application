@@ -34,8 +34,8 @@
         <!-- Product Actions -->
         <div class="product-actions">
           <a href="/products/<%= product.id %>/edit" class="edit-link">Edit</a>
-          <form action="/products/<%= product.id %>/delete" method="POST" style="display:inline;">
-            <button type="submit" class="delete-btn">Delete</button>
+          <form action="/products/<%= product.id %>/delete" method="GET" style="display:inline;">
+            <button type="submit" class="delete-btn" >Delete</button>
           </form>
         </div>
       </li>
