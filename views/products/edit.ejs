@@ -36,6 +36,12 @@
     <input type="number" id="quantity" name="quantity" value="<%= product.quantity %>" required />
   </div>
 
+   <!-- Image URL -->
+  <div class="form-group">
+    <label for="image_url">Product Image URL</label>
+    <input type="url" id="image_url" name="image_url" value="<%= product.image_url %>" placeholder="https://example.com/image.jpg" required />
+  </div>
+
   <!-- Category -->
   <div class="form-group">
     <label for="category_id">Category</label>
