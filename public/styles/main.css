@@ -442,5 +442,21 @@ body {
   .menu-btn {
     display: block;
   }
+  .logo-text{
+    display: none;
+  }
+  .search-bar input{
+    width: 150px;
+    height: 10px;
+  }
+  .search-bar .btn{
+    padding: 2px;
+  }
+  .app-header{
+    padding-left: 0;
+  }
+  .page-header .btn{
+    padding: 5px;
+  }
 }
 
