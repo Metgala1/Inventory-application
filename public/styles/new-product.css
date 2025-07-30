@@ -215,8 +215,13 @@ textarea {
   }
 
   .product-form {
-    margin: 1.5rem;
-    padding: 1.5rem;
+    padding: 0px 2rem;
+    width: 100vw;
+    padding-bottom: 2rem;
+  }
+  .product-form input, .product-form textarea, 
+  .product-form select{
+    width: 80%;
   }
 }
 
